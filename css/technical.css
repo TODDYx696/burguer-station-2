@@ -1,38 +1,46 @@
 /* Technical/accessibility layer kept separate from the visual design. */
 
-.skip-link {
-  position: fixed;
-  left: 16px;
-  top: -100px;
-  z-index: 2000;
-  padding: 10px 14px;
-  border-radius: 8px;
-  background: #fff;
-  color: #111;
-  font-weight: 700;
-}
-
+.skip-link { position: fixed; left: 16px; top: -100px; z-index: 2000; padding: 10px 14px; border-radius: 8px; background: #fff; color: #111; font-weight: 700; }
 .skip-link:focus { top: 16px; }
-
-:focus-visible {
-  outline: 3px solid #e63946;
-  outline-offset: 3px;
-}
-
+:focus-visible { outline: 3px solid #e63946; outline-offset: 3px; }
 .hero-bg img { user-select: none; }
+
+/* Brand rule: never use generic emoji/iconography as the primary logo. */
+.logo-mark { display: none !important; }
+.logo { gap: 0; }
+
+/* Premium motion layer: energetic but restrained, avoiding generic AI-template effects. */
+.btn-primary { box-shadow: 0 0 0 rgba(230,57,70,0); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(230,57,70,.28); }
+.btn-primary:active { transform: translateY(0); }
+
+.hero-bg img { animation: hero-drift 14s ease-in-out infinite alternate; transform-origin: center; }
+.hero::after { pointer-events: none; }
+.menu-card, .benefit-card, .about-image, .gallery-item, .map-wrap, .hours { transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease; }
+.menu-card:hover, .benefit-card:hover { transform: translateY(-7px); box-shadow: 0 18px 45px rgba(0,0,0,.28), 0 0 28px rgba(230,57,70,.08); }
+.about-image:hover, .gallery-item:hover { border-color: rgba(230,57,70,.35); box-shadow: 0 14px 38px rgba(0,0,0,.3); }
+.gallery-item:hover { transform: translateY(-3px); }
+.map-wrap:hover, .hours:hover { border-color: rgba(230,57,70,.28); box-shadow: 0 12px 34px rgba(0,0,0,.22); }
+
+.nav-links a { position: relative; }
+.nav-links a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -6px; height: 2px; background: var(--accent); transition: right .25s ease; }
+.nav-links a:hover::after, .nav-links a.active::after { right: 0; }
+
+.hero-content > * { animation: rise-in .7s ease both; }
+.hero-content > *:nth-child(1) { animation-delay: .08s; }
+.hero-content > *:nth-child(2) { animation-delay: .16s; }
+.hero-content > *:nth-child(3) { animation-delay: .24s; }
+.hero-content > *:nth-child(4) { animation-delay: .32s; }
+
+.floating-whatsapp { animation: whatsapp-pulse 2.6s ease-in-out infinite; }
+
+@keyframes hero-drift { from { transform: scale(1.02); } to { transform: scale(1.07); } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes whatsapp-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,.18); } 50% { box-shadow: 0 0 0 10px rgba(37,211,102,0); } }
 
 @media (max-width: 900px) {
   .menu-toggle { display: flex; border: 0; background: transparent; }
-  .nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    display: none;
-    padding: 20px 24px 24px;
-    background: rgba(11, 15, 20, 0.98);
-    border-top: 1px solid var(--border);
-  }
+  .nav { position: absolute; top: 100%; left: 0; right: 0; display: none; padding: 20px 24px 24px; background: rgba(11, 15, 20, 0.98); border-top: 1px solid var(--border); }
   .nav.open { display: flex; flex-direction: column; align-items: stretch; gap: 18px; }
   .nav-links { flex-direction: column; gap: 4px; }
   .nav-links a { display: block; padding: 12px 4px; }
