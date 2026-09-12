@@ -1,38 +1,35 @@
-// Blue Station Burguer - Interactions
+// Blue Station Burguer — interactions
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Header scroll effect
   const header = document.querySelector('.header');
   const onScroll = () => {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
+    header.classList.toggle('scrolled', window.scrollY > 30);
   };
-  window.addEventListener('scroll', onScroll);
+  window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Mobile menu toggle
+  // Mobile menu
   const menuToggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.nav');
   const navLinks = document.querySelectorAll('.nav-links a');
 
   menuToggle?.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    nav.classList.toggle('open');
-    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+    const isOpen = nav.classList.toggle('open');
+    menuToggle.classList.toggle('active', isOpen);
+    menuToggle.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       menuToggle?.classList.remove('active');
       nav?.classList.remove('open');
+      menuToggle?.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     });
   });
 
-  // Highlight current day in hours
+  // Highlight current day
   const daysMap = {
     0: 'domingo',
     1: 'segunda',
@@ -43,31 +40,27 @@ document.addEventListener('DOMContentLoaded', () => {
     6: 'sabado'
   };
   const today = daysMap[new Date().getDay()];
-  const hoursItems = document.querySelectorAll('.hours-item');
-  hoursItems.forEach(item => {
-    if (item.dataset.day === today) {
-      item.classList.add('today');
+  document.querySelectorAll('.hours-row').forEach(row => {
+    if (row.dataset.day === today) {
+      row.classList.add('today');
     }
   });
 
-  // Smooth active nav link on scroll
+  // Active nav link on scroll
   const sections = document.querySelectorAll('section[id]');
-  const observerOptions = {
-    root: null,
-    rootMargin: '-30% 0px -60% 0px',
-    threshold: 0
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-        });
-      }
-    });
-  }, observerOptions);
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    },
+    { rootMargin: '-35% 0px -55% 0px', threshold: 0 }
+  );
 
   sections.forEach(section => observer.observe(section));
 });
