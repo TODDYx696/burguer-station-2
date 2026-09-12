@@ -1,6 +1,7 @@
 /* ========================================
    BLUE STATION BURGUER
    Professional redesign — clean, commercial, intentional
+   Color identity: Red + Black
    ======================================== */
 
 :root {
@@ -12,9 +13,9 @@
   --text: #f2f4f7;
   --text-muted: #9aa3b2;
   --text-soft: #6b7280;
-  --accent: #3b9eff;
-  --accent-hover: #5aadff;
-  --accent-soft: rgba(59, 158, 255, 0.12);
+  --accent: #e63946;
+  --accent-hover: #ff4d5a;
+  --accent-soft: rgba(230, 57, 70, 0.12);
   --white: #ffffff;
   --radius: 12px;
   --radius-lg: 16px;
