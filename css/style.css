@@ -2,6 +2,7 @@
    BLUE STATION BURGUER
    Professional redesign — clean, commercial, intentional
    Color identity: Red + Black
+   Rules: no emoji as logo, no glassmorphism/neon/blobs
    ======================================== */
 
 :root {
@@ -97,24 +98,11 @@ ul {
 
 .logo {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   color: var(--white);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-mark {
-  width: 32px;
-  height: 32px;
-  background: var(--accent);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.95rem;
+  text-transform: uppercase;
 }
 
 .logo span {
@@ -460,9 +448,11 @@ ul {
 }
 
 .benefit-icon {
-  font-size: 1.75rem;
+  font-size: 0.7rem;
   margin-bottom: 14px;
   display: block;
+  color: var(--accent);
+  letter-spacing: 0;
 }
 
 .benefit-title {
