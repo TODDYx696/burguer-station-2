@@ -1,64 +1,39 @@
 # Blue Station Burguer
 
-Site profissional, moderno e totalmente responsivo para a **Blue Station Burguer**, hamburgueria localizada na República, São Paulo.
+Site profissional e responsivo para a **Blue Station Burguer**, hamburgueria na República, São Paulo.
 
-## 🔗 Live Demo
+## Repositório
 
-Após publicar no GitHub Pages ou Vercel/Netlify, o site estará disponível.
+https://github.com/TODDYx696/burguer-station-2
 
-## ✨ Características
+## Características
 
-- Design premium com identidade visual em **azul escuro + azul elétrico + preto + branco**
+- Design limpo, sóbrio e comercial
+- Identidade visual em azul + preto + branco (sem excessos de glow)
 - Totalmente responsivo (mobile-first)
 - Menu hamburger no mobile
 - Botão flutuante de WhatsApp
-- Mapa incorporado do Google Maps
+- Mapa do Google Maps incorporado
 - Destaque automático do dia atual nos horários
-- Microanimações e efeitos de hover elegantes
-- Estrutura preparada para fácil personalização (logo, fotos, cardápio, preços, Instagram etc.)
+- Estrutura pronta para receber logo, fotos reais, cardápio e Instagram
 
-## 📍 Informações do estabelecimento
+## Informações do estabelecimento
 
 - **Nome:** Blue Station Burguer
 - **Endereço:** R. Bento Freitas, 142 - República, São Paulo - SP, 01220-000
 - **WhatsApp:** (11) 97952-8560
-- **Horários:**
-  - Quarta: 19:00–00:00
-  - Quinta: 19:00–00:30
-  - Sexta: 19:00–02:00
-  - Sábado: 16:00–02:00
-  - Domingo: 16:00–01:00
-  - Segunda e Terça: Fechado
+- **Horários:** Qua 19h–00h · Qui 19h–00h30 · Sex 19h–02h · Sáb 16h–02h · Dom 16h–01h · Seg/Ter fechado
 
-## 🛠️ Como usar
-
-1. Clone o repositório
-2. Abra `index.html` no navegador ou use um servidor local
-3. Para personalizar:
-   - Substitua as imagens (Unsplash placeholders)
-   - Atualize nomes e descrições dos hambúrueres
-   - Adicione preços quando disponíveis
-   - Insira o link real do cardápio
-   - Adicione Instagram oficial se existir
-
-## 📱 Responsividade testada
-
-- 320px / 375px / 390px / 430px
-- Tablet
-- Desktop
-
-## 🚀 Publicar
+## Como publicar
 
 ### GitHub Pages
-1. Vá em Settings → Pages
+1. Settings → Pages
 2. Source: Deploy from a branch → `main` → `/ (root)`
-3. Salve
+3. Save
 
 ### Vercel / Netlify
 Importe o repositório e publique.
 
 ---
 
-**Site de demonstração** criado para apresentação ao cliente.  
-Não inventa informações oficiais da empresa.  
-Estrutura pronta para receber conteúdo real.
+Site de demonstração. Não inventa informações oficiais da empresa.
