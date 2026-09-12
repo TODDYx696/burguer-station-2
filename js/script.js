@@ -41,6 +41,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
   sections.forEach(section => observer.observe(section));
 
+  // Reveal sections as they enter the viewport.
+  document.querySelectorAll('.section-header, .about-grid, .menu-card, .benefit-card, .gallery-item, .location-grid').forEach((element, index) => {
+    element.classList.add('reveal');
+    element.style.transitionDelay = `${Math.min(index * 45, 220)}ms`;
+  });
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px' });
+  document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
+
+  // Load the premium glow/motion layer after the main styles.
+  if (!document.querySelector('link[href="css/motion.css"]')) {
+    const motion = document.createElement('link');
+    motion.rel = 'stylesheet';
+    motion.href = 'css/motion.css';
+    document.head.appendChild(motion);
+  }
+
   const year = document.querySelector('#year');
   if (year) year.textContent = String(new Date().getFullYear());
 });
